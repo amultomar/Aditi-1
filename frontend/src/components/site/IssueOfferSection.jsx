@@ -112,7 +112,7 @@ export default function IssueOfferSection() {
                   <ChevronLeft className="size-5" />
                 </button>
                 <p className="issue-offer-nav__status" aria-live="polite">
-                  {card.label} of {OFFER_CARDS[0].label}
+                  {card.label} 
                 </p>
                 <button
                   type="button"

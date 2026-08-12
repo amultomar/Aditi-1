@@ -357,13 +357,17 @@ export function AuthorCard({ author }) {
             className="h-[4.5rem] w-[4.5rem] shrink-0 rounded-full object-cover ring-2 ring-ember/30"
             loading="lazy"
           />
+
           <div className="authors-card-identity">
-            <p className="font-plex text-[0.68rem] font-medium uppercase leading-[1.45] tracking-[0.12em] text-ember">
-              {author.rank}
-            </p>
-            <h3 className="authors-card-name mt-2 font-rajdhani text-xl font-bold leading-tight text-chalk">
+            {/* Name / Name + Medals */}
+            <h3 className="authors-card-name font-rajdhani text-xl font-bold leading-tight text-chalk">
               {author.name}
             </h3>
+
+            {/* Designation / Professional Status */}
+            <p className="mt-2 font-plex text-[0.78rem] font-medium leading-[1.5] tracking-[0.06em] text-ember">
+              {author.rank}
+            </p>
           </div>
         </div>
       </div>
@@ -372,9 +376,11 @@ export function AuthorCard({ author }) {
         <p className="font-plex text-[0.7rem] font-medium uppercase tracking-[0.18em] text-fog">
           Highlighted Expertise
         </p>
+
         <p className="authors-card-specialty mt-2 font-lora text-base italic leading-relaxed text-ash">
           {author.specialty}
         </p>
+
         {author.summary ? (
           <p className="authors-card-summary mt-4 font-plex text-base font-light leading-[1.8] text-fog">
             {author.summary}

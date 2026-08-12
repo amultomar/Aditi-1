@@ -242,7 +242,7 @@ export const AUTHORS = [
 // `null` as the image key means no portrait has been supplied yet.
 export const AUTHORS_ISSUE_2 = [
   {
-    name: "Prof. (Dr.) Sukhwant S. Bindra",
+    name: "Prof. (Dr.) Sukhwant S. Bindra", 
     rank: "Director (Research), Amity Institute of International Studies",
     specialty: "International relations, foreign policy analysis, and political theory.",
     summary:
