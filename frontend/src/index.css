@@ -1426,18 +1426,13 @@ body.menu-open {
   backface-visibility: hidden;
 }
 
-.issue-book-cover {
-  transform: translateZ(12px);
-  box-shadow:
-    0 32px 90px rgba(0, 0, 0, 0.5),
-    0 10px 24px rgba(0, 0, 0, 0.3);
-}
 
 .issue-book-cover__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transform: scale(1.01);
 }
 
 .issue-book-back {
@@ -1463,31 +1458,48 @@ body.menu-open {
   border-radius: 3px;
 }
 
+.issue-book-cover {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  z-index: 3;
+  transform: translateZ(6px);
+}
 .issue-book-pages {
   position: absolute;
-  inset: 6px;
-  transform: translateZ(4px);
+  top: 8px;
+  bottom: 8px;
+  right: 2px;
+  width: 8px;
+  z-index: 1;
+  transform: translateZ(1px);
 }
 
 .issue-book-pages span {
   position: absolute;
   top: 0;
   bottom: 0;
-  right: -2px;
-  width: 8px;
-  background: linear-gradient(180deg, #f8f4e8, #e9dfc8);
+  right: 0;
+  width: 6px;
+  background: linear-gradient(180deg, #f3efe5, #ddd3c3);
+  border-left: 1px solid rgba(0,0,0,0.12);
+  border-radius: 0 3px 3px 0;
 }
 
 .issue-book-pages span:nth-child(1) {
-  transform: translateZ(2px);
+  transform: translateX(0);
+  opacity: 0.9;
 }
 
 .issue-book-pages span:nth-child(2) {
-  transform: translateZ(5px);
+  transform: translateX(1px);
+  opacity: 0.7;
 }
 
 .issue-book-pages span:nth-child(3) {
-  transform: translateZ(8px);
+  transform: translateX(2px);
+  opacity: 0.5;
 }
 
 .issue-book-3d::after {
@@ -3819,27 +3831,18 @@ body.menu-open {
 */
 .pageflip-page::after {
   content: "";
-
   position: absolute;
-
   top: 0;
   bottom: 0;
-
-  right: -3px;
-
-  width: 3px;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(242, 234, 218, 0.18),
-      rgba(0, 0, 0, 0.28),
-      rgba(242, 234, 218, 0.08)
-    );
-
-  opacity: 0.85;
+  right: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.18),
+    rgba(255,255,255,0.04),
+    rgba(0,0,0,0.22)
+  );
+  opacity: 0.35;
 }
 
 
@@ -5091,16 +5094,93 @@ body.menu-open {
   gap: 0.65rem;
   margin-top: 1.35rem;
 }
-
 .carousel-arrows {
+  position: absolute;
+  top: 50%;
+  left: -2.75rem;
+  right: -2.75rem;
+  z-index: 10;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+/* =========================================================
+   AUTHORS CAROUSEL — KEEP ARROWS OUTSIDE CARDS
+   ========================================================= */
+
+.authors-carousel-arrows {
+  position: absolute;
+  top: 50%;
+  left: -3.25rem;
+  right: 0.75rem;
+  bottom: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  transform: translateY(-50%);
+  z-index: 20;
   pointer-events: none;
 }
 
-.carousel-arrows .carousel-arrow {
+.authors-carousel-arrows .carousel-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
   pointer-events: auto;
+}
+
+
+/* =========================================================
+   TABLET / MAC
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .authors-carousel-arrows {
+    left: -2.4rem;
+    right: 0.6rem;
+  }
+
+  .authors-carousel-arrows .carousel-arrow {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .authors-carousel-arrows {
+    left: 0.35rem;
+    right: 0.35rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .authors-carousel-arrows .carousel-arrow {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+}
+
+.carousel-arrow-side {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  pointer-events: none;
+}
+
+.carousel-arrow-side .carousel-arrow {
+  pointer-events: auto;
+}
+
+.carousel-arrows .carousel-arrow {
   border-color: rgba(201, 154, 74, 0.72) !important;
   background: rgba(9, 11, 8, 0.94) !important;
   color: #c99a4a !important;
@@ -5130,24 +5210,9 @@ body.menu-open {
   position: relative;
   width: 100%;
   min-width: 0;
+  overflow: visible;
 }
 
-.authors-carousel-arrows,
-.dispatch-carousel-arrows,
-
-
-.feedback-carousel-arrows {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4.00rem;
-  top: auto;
-  z-index: 6;
-  transform: none;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
 
 .carousel-dot {
   width: 0.65rem;
@@ -5337,10 +5402,6 @@ body.menu-open {
   margin-top: clamp(1.4rem, 3vw, 2.25rem);
 }
 
-.feedback-carousel-arrows {
-  justify-content: space-between;
-  margin: 0;
-}
 
 .feedback-carousel-arrows .carousel-arrow {
   width: 2.75rem;
@@ -5356,6 +5417,28 @@ body.menu-open {
   border-color: rgba(242, 234, 218, 0.82);
   background: #c99a4a;
   color: #090b08;
+}
+.feedback-carousel-arrows {
+  position: absolute;
+  top: 50%;
+  left: -3.25rem;
+  right: -3.25rem;
+  bottom: auto;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.feedback-carousel-arrows .carousel-arrow {
+  pointer-events: auto;
+  flex: 0 0 auto;
 }
 
 .feedback-carousel-dots {
@@ -7411,11 +7494,13 @@ body.menu-open {
     margin: 0;
   }
 
-  .authors-carousel-arrows,
-  .dispatch-carousel-arrows,
-  .feedback-carousel-arrows {
-    inset-inline: 0.65rem;
-  }
+.feedback-carousel-arrows {
+  left: -2.65rem;
+  right: -2.65rem;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+}
 
   .dispatch-track {
     gap: 0.9rem;
@@ -8357,5 +8442,423 @@ body.menu-open {
       translateY(0)
       scale(1)
       rotateX(0);
+  }
+}
+
+/* =========================================================
+   RAIL CAROUSEL — FINAL RESPONSIVE ARROW + CARD LAYOUT
+   Keep this block at the very end of index.css so it wins over
+   earlier carousel rules without changing the component markup.
+   ========================================================= */
+
+.rail-carousel {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+
+.carousel-arrows,
+.authors-carousel-arrows,
+.feedback-carousel-arrows {
+  position: absolute !important;
+  top: 50% !important;
+  bottom: auto !important;
+  left: -3.25rem !important;
+  right: -3.25rem !important;
+  z-index: 20 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  transform: translateY(-50%) !important;
+  pointer-events: none !important;
+}
+
+.carousel-arrows .carousel-arrow,
+.authors-carousel-arrows .carousel-arrow,
+.feedback-carousel-arrows .carousel-arrow {
+  flex: 0 0 auto !important;
+  pointer-events: auto !important;
+  box-sizing: border-box;
+}
+
+.carousel-arrows .carousel-arrow,
+.authors-carousel-arrows .carousel-arrow {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+}
+
+.feedback-carousel-arrows .carousel-arrow {
+  width: 2.75rem !important;
+  height: 2.75rem !important;
+}
+
+.carousel-arrows .carousel-arrow,
+.dispatch-carousel-arrows .carousel-arrow,
+.authors-carousel-arrows .carousel-arrow,
+.feedback-carousel-arrows .carousel-arrow {
+  border-color: rgba(201, 154, 74, 0.72) !important;
+  background: rgba(9, 11, 8, 0.94) !important;
+  color: #c99a4a !important;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.42);
+}
+
+.carousel-arrows .carousel-arrow:hover,
+.dispatch-carousel-arrows .carousel-arrow:hover,
+.authors-carousel-arrows .carousel-arrow:hover,
+.feedback-carousel-arrows .carousel-arrow:hover {
+  border-color: rgba(242, 234, 218, 0.82) !important;
+  background: #c99a4a !important;
+  color: #090b08 !important;
+}
+
+.carousel-arrow-spacer {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* ---------------------------------------------------------
+   Laptop / Mac / Tablet
+   Give the carousel track its own side breathing room.
+   This makes the cards slightly narrower and creates a real
+   gap between the card edge and each arrow.
+   --------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .rail-carousel {
+    padding-inline: 1.5rem;
+  }
+
+  .carousel-arrows,
+  .authors-carousel-arrows,
+  .feedback-carousel-arrows {
+    left: -1.5rem !important;
+    right: -1.5rem !important;
+  }
+
+  .carousel-arrows .carousel-arrow,
+  .authors-carousel-arrows .carousel-arrow {
+    width: 2.35rem !important;
+    height: 2.35rem !important;
+  }
+
+  .feedback-carousel-arrows .carousel-arrow {
+    width: 2.45rem !important;
+    height: 2.45rem !important;
+  }
+
+  .dispatch-track > .shrink-0 {
+    flex-basis: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   Mobile
+   Cards become slightly narrower while arrows stay outside
+   the card instead of sitting on top of its content.
+   --------------------------------------------------------- */
+@media (max-width: 767px) {
+  .rail-carousel {
+    padding-inline: 1.4rem;
+  }
+
+  .carousel-arrows,
+  .authors-carousel-arrows,
+  .feedback-carousel-arrows {
+    left: -1.4rem !important;
+    right: -1.4rem !important;
+  }
+
+  .carousel-arrows .carousel-arrow,
+  .authors-carousel-arrows .carousel-arrow {
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+  }
+
+  .feedback-carousel-arrows .carousel-arrow {
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+    border-radius: 0.5rem;
+  }
+
+  .dispatch-track > .shrink-0 {
+    flex-basis: 100% !important;
+    width: 100% !important;
+  }
+
+  .dispatch-track .article-card {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .authors-carousel-wrap .authors-track {
+    grid-auto-columns: 100% !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   Very small phones
+   Keep a little extra separation without making the card too
+   narrow on 320–360px screens.
+   --------------------------------------------------------- */
+@media (max-width: 380px) {
+  .rail-carousel {
+    padding-inline: 1.15rem;
+  }
+
+  .carousel-arrows,
+  .authors-carousel-arrows,
+  .feedback-carousel-arrows {
+    left: -1.15rem !important;
+    right: -1.15rem !important;
+  }
+
+  .carousel-arrows .carousel-arrow,
+  .authors-carousel-arrows .carousel-arrow,
+  .feedback-carousel-arrows .carousel-arrow {
+    width: 2.05rem !important;
+    height: 2.05rem !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL CAROUSEL FIX — KEEP ARROWS CLEAR OF CARD EDGES
+   ========================================================= */
+
+.rail-carousel {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+
+/* Desktop: reserve a real gutter around the card rail. */
+@media (min-width: 1200px) {
+  .rail-carousel {
+    padding-inline: 3.5rem;
+  }
+
+  .rail-carousel > .carousel-arrows,
+  .rail-carousel > .authors-carousel-arrows,
+  .rail-carousel > .feedback-carousel-arrows {
+    left: 0 !important;
+    right: 0 !important;
+  }
+}
+
+/* Mac / tablet / laptop */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .rail-carousel {
+    padding-inline: 3rem;
+  }
+
+  .rail-carousel > .carousel-arrows,
+  .rail-carousel > .authors-carousel-arrows,
+  .rail-carousel > .feedback-carousel-arrows {
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  .rail-carousel .carousel-arrow {
+    width: 2.3rem !important;
+    height: 2.3rem !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .rail-carousel {
+    /*
+     * The important change:
+     * card content gets a genuine left/right gutter instead of
+     * pushing the arrows outside the viewport.
+     */
+    padding-inline: 2.15rem;
+  }
+
+  .rail-carousel > .carousel-arrows,
+  .rail-carousel > .authors-carousel-arrows,
+  .rail-carousel > .feedback-carousel-arrows {
+    left: 0 !important;
+    right: 0 !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .rail-carousel .carousel-arrow {
+    width: 2.15rem !important;
+    height: 2.15rem !important;
+  }
+
+  .rail-carousel .carousel-arrow-spacer {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  /*
+   * Make the actual article/feedback/author card narrower than the
+   * viewport so the arrow has visible space beside it.
+   */
+  .rail-carousel .dispatch-track > .shrink-0 {
+    flex-basis: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .rail-carousel {
+    padding-inline: 1.85rem;
+  }
+
+  .rail-carousel .carousel-arrow {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+
+  .rail-carousel .carousel-arrow-spacer {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* Feedback has its own track wrapper; keep the same safe gutter. */
+@media (max-width: 767px) {
+  .feedback-section .rail-carousel {
+    padding-inline: 2.15rem;
+  }
+
+  .feedback-section .feedback-carousel-arrows {
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  .feedback-track {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   MAGAZINE POPUP — MOBILE ONLY
+   Desktop / tablet remain unchanged
+   ========================================================= */
+
+@media (max-width: 767px) {
+  /* Popup viewport */
+  .bookflip2-section ~ * {
+    box-sizing: border-box;
+  }
+
+  /* Keep the popup inside the mobile viewport */
+  [role="dialog"][aria-label="ADITI interactive magazine"] {
+    padding: 0.5rem !important;
+    align-items: flex-start !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Popup container */
+  [role="dialog"][aria-label="ADITI interactive magazine"]
+    > .relative {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    margin: 0 auto !important;
+    padding: 0.75rem !important;
+    border-radius: 1rem !important;
+  }
+
+  /* Header */
+  [role="dialog"][aria-label="ADITI interactive magazine"]
+    > .relative
+    > .relative.z-20 {
+    padding-bottom: 0.5rem !important;
+    flex-shrink: 0;
+  }
+
+  /* Flipbook area */
+  [role="dialog"][aria-label="ADITI interactive magazine"]
+    > .relative
+    > .flex.min-h-0 {
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* Book wrapper */
+  [role="dialog"][aria-label="ADITI interactive magazine"]
+    > .relative
+    > .flex.min-h-0
+    > .relative {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* Mobile book */
+  .mobile-magazine-viewer {
+    width: 100% !important;
+    max-width: 240px !important;
+    margin: 0 auto !important;
+  }
+
+  .mobile-magazine-viewer__frame {
+    width: 100% !important;
+    max-width: 240px !important;
+    margin: 0 auto !important;
+  }
+
+  .mobile-magazine-page {
+    width: 100% !important;
+    max-width: 240px !important;
+    margin: 0 auto !important;
+  }
+
+  .mobile-magazine-page__inner {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1.2941176471 !important;
+  }
+
+  .mobile-magazine-page__image {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* Mobile prev/next controls */
+  [role="dialog"][aria-label="ADITI interactive magazine"]
+    > .relative
+    > .flex.items-center.justify-center.gap-3 {
+    flex-shrink: 0;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+
+  /* Progress */
+  [role="dialog"][aria-label="ADITI interactive magazine"]
+    .pageflip-progress {
+    margin-top: 0 !important;
+  }
+
+  /* End CTA should stay inside popup */
+  [role="dialog"][aria-label="ADITI interactive magazine"]
+    .pageflip-end-cta {
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 0.75rem !important;
   }
 }

@@ -273,38 +273,39 @@ export function RailCarousel({
 
   return (
     <div className="rail-carousel" aria-label={ariaLabel}>
-      {showArrows && pageCount > 1 ? (
-        <div className={cn("carousel-arrows", arrowsClassName)}>
-          {showPreviousArrow ? (
-            <Button
-              type="button"
-              variant="outline"
-              size="icon"
-              className="carousel-arrow h-10 w-10 rounded-full border-steel/60 bg-bunker/80 text-chalk hover:border-ember/50 hover:bg-plate hover:text-chalk"
-              aria-label={`Previous ${ariaLabel} page`}
-              onClick={() => scrollByPage(-1)}
-            >
-              <ChevronLeft className="size-5" />
-            </Button>
-          ) : (
-            <span className="carousel-arrow-spacer" aria-hidden="true" />
-          )}
-          {showNextArrow ? (
-            <Button
-              type="button"
-              variant="outline"
-              size="icon"
-              className="carousel-arrow h-10 w-10 rounded-full border-steel/60 bg-bunker/80 text-chalk hover:border-ember/50 hover:bg-plate hover:text-chalk"
-              aria-label={`Next ${ariaLabel} page`}
-              onClick={() => scrollByPage(1)}
-            >
-              <ChevronRight className="size-5" />
-            </Button>
-          ) : (
-            <span className="carousel-arrow-spacer" aria-hidden="true" />
-          )}
-        </div>
+     {showArrows && pageCount > 1 ? (
+  <div className={cn("carousel-arrows", arrowsClassName)}>
+    <div className="carousel-arrow-side carousel-arrow-side-prev">
+      {showPreviousArrow ? (
+        <Button
+          type="button"
+          variant="outline"
+          size="icon"
+          className="carousel-arrow h-10 w-10 rounded-full border-steel/60 bg-bunker/80 text-chalk hover:border-ember/50 hover:bg-plate hover:text-chalk"
+          aria-label={`Previous ${ariaLabel} page`}
+          onClick={() => scrollByPage(-1)}
+        >
+          <ChevronLeft className="size-5" />
+        </Button>
       ) : null}
+    </div>
+
+    <div className="carousel-arrow-side carousel-arrow-side-next">
+      {showNextArrow ? (
+        <Button
+          type="button"
+          variant="outline"
+          size="icon"
+          className="carousel-arrow h-10 w-10 rounded-full border-steel/60 bg-bunker/80 text-chalk hover:border-ember/50 hover:bg-plate hover:text-chalk"
+          aria-label={`Next ${ariaLabel} page`}
+          onClick={() => scrollByPage(1)}
+        >
+          <ChevronRight className="size-5" />
+        </Button>
+      ) : null}
+    </div>
+  </div>
+) : null}
       <>
         <div
           ref={trackRef}
