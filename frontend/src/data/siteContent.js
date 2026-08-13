@@ -15,11 +15,14 @@ import readerKhushbu from "../../media/testimonials/khushbu.webp";
 import readerRitika from "../../media/testimonials/ritika.webp";
 import readerShivam from "../../media/testimonials/shivam.webp";
 
-const contributorImages = import.meta.glob("../../media/contributors image/*", {
-  eager: true,
-  import: "default",
-  query: "?url",
-});
+const contributorImages = import.meta.glob(
+  "../../media/contributors image/*",
+  {
+    eager: true,
+    import: "default",
+    query: "?url",
+  }
+);
 
 const contributorImagesIssueTwo = import.meta.glob(
   "../../media/contributors images issue II/*.webp",
@@ -35,7 +38,10 @@ function findImage(images, matchText) {
     path.toLowerCase().includes(matchText.toLowerCase())
   );
 
-  return match?.[1] ?? "https://i.pravatar.cc/240?img=15";
+  return (
+    match?.[1] ??
+    "https://i.pravatar.cc/240?img=15"
+  );
 }
 
 function contributorImage(matchText) {
@@ -56,7 +62,7 @@ function contributorImageIssueTwo(matchText) {
 }
 
 export const PREMIUM_MAGAZINE_PRICE_RUPEES = "350";
-export const PREMIUM_MAGAZINE_PRICE_LABEL = `\u20B9${PREMIUM_MAGAZINE_PRICE_RUPEES}`;
+export const PREMIUM_MAGAZINE_PRICE_LABEL = `₹${PREMIUM_MAGAZINE_PRICE_RUPEES}`;
 
 export const SECTION_IDS = [
   "intro",
@@ -74,7 +80,7 @@ export const NAV_ITEMS = [
   { id: "intro", label: "Home", index: "01" },
   { id: "authors", label: "Authors", index: "02" },
   { id: "read", label: "Articles", index: "03" },
-  { id: "feedback", label: "Testimonials", index: "04" }
+  { id: "feedback", label: "Testimonials", index: "04" },
 ];
 
 export const MENU_ITEMS = [
@@ -82,7 +88,12 @@ export const MENU_ITEMS = [
   { id: "mission", title: "Mission", index: "02", meta: "About the brand" },
   { id: "authors", title: "Authors", index: "03", meta: "Ranks and roles" },
   { id: "read", title: "Articles", index: "04", meta: "Free and premium" },
-  { id: "feedback", title: "Testimonials", index: "05", meta: "Reader trust" },
+  {
+    id: "feedback",
+    title: "Testimonials",
+    index: "05",
+    meta: "Reader trust",
+  },
   { id: "faq", title: "FAQ", index: "06", meta: "Terms and access" },
 ];
 
@@ -111,7 +122,8 @@ export const AUTHORS = [
   {
     name: "Prof. (Dr.) Srikanth Kondapalli",
     rank: "Dean, School of International Studies, JNU",
-    specialty: "Chinese politics, East Asian strategy, and cognitive warfare.",
+    specialty:
+      "Chinese politics, East Asian strategy, and cognitive warfare.",
     summary:
       "Chairman of the Centre for East Asian Studies at JNU, he examines China's cognitive warfare approach and its impact on India.",
     image: contributorImage("srikanth"),
@@ -119,7 +131,8 @@ export const AUTHORS = [
   {
     name: "Lt. Gen. Dharam Vir Kalra",
     rank: "PVSM, AVSM (Retd.)",
-    specialty: "Defence logistics, supply chains, and operational planning.",
+    specialty:
+      "Defence logistics, supply chains, and operational planning.",
     summary:
       "Former Director General of Ordnance Services, he brings a civilisational and logistics lens to questions of strategy.",
     image: contributorImage("dv kalra"),
@@ -127,7 +140,8 @@ export const AUTHORS = [
   {
     name: "A.M. (Dr.) Diptendu Choudhury",
     rank: "PVSM, AVSM, VM, VSM (Retd.)",
-    specialty: "Air power, strategic policy, and regional defence dynamics.",
+    specialty:
+      "Air power, strategic policy, and regional defence dynamics.",
     summary:
       "A former Commandant of the National Defence College and fighter pilot, he analyses Control of Air and future regional dynamics.",
     image: contributorImage("diptendu"),
@@ -135,7 +149,8 @@ export const AUTHORS = [
   {
     name: "Maj. Gen. (Dr.) Rajan Kochhar",
     rank: "VSM (Retd.)",
-    specialty: "Army logistics, defence analysis, and higher defence management.",
+    specialty:
+      "Army logistics, defence analysis, and higher defence management.",
     summary:
       "A former Army Ordnance Corps officer and defence writer, he assesses future-ready logistics for the Indian Army.",
     image: contributorImage("rajan kochhar"),
@@ -143,7 +158,8 @@ export const AUTHORS = [
   {
     name: "Maj. Gen. (Dr.) Mandip Singh",
     rank: "SM, VSM (Retd.)",
-    specialty: "Operations, strategic planning, and perception management.",
+    specialty:
+      "Operations, strategic planning, and perception management.",
     summary:
       "A senior Army veteran with deep operational and headquarters experience, he examines the revolution in drone affairs.",
     image: contributorImage("mandip"),
@@ -151,7 +167,8 @@ export const AUTHORS = [
   {
     name: "Maj. Gen. Neeraj Bali",
     rank: "SM (Retd.)",
-    specialty: "China strategy, counter-terror operations, and professional military education.",
+    specialty:
+      "China strategy, counter-terror operations, and professional military education.",
     summary:
       "An Army veteran with operational and advisory experience, he analyses why India's China strategy requires a rethink.",
     image: contributorImage("neeraj bali"),
@@ -159,7 +176,8 @@ export const AUTHORS = [
   {
     name: "Cmde. Anil Jai Singh",
     rank: "Commodore (Retd.)",
-    specialty: "Submarine warfare, maritime strategy, procurement, and indigenisation.",
+    specialty:
+      "Submarine warfare, maritime strategy, procurement, and indigenisation.",
     summary:
       "A veteran submariner and maritime commentator, he examines India's defence procurement process for ADITI.",
     image: contributorImage("anil jai singh"),
@@ -167,7 +185,8 @@ export const AUTHORS = [
   {
     name: "Brig. Anshuman Narang",
     rank: "Brigadier (Retd.)",
-    specialty: "OSINT, space security, UAS, and counter-UAS warfare.",
+    specialty:
+      "OSINT, space security, UAS, and counter-UAS warfare.",
     summary:
       "Founder of the Atma Nirbhar Soch Foundation, he writes on re-energising India's space ecosystem.",
     image: contributorImage("anshuman narang"),
@@ -175,7 +194,8 @@ export const AUTHORS = [
   {
     name: "Brig. Brijesh Dhiman",
     rank: "Brigadier (Retd.)",
-    specialty: "Counterinsurgency, internal security, and Northeast operations.",
+    specialty:
+      "Counterinsurgency, internal security, and Northeast operations.",
     summary:
       "An Assam Regiment veteran, he analyses the Indian State's approach to non-state actors in the Northeast.",
     image: contributorImage("brijesh dhiman"),
@@ -183,7 +203,8 @@ export const AUTHORS = [
   {
     name: "Gp. Cpt. (Dr.) Rajiv Kumar Narang",
     rank: "VM (Retd.)",
-    specialty: "Aviation safety, unmanned systems, drones, and defence indigenisation.",
+    specialty:
+      "Aviation safety, unmanned systems, drones, and defence indigenisation.",
     summary:
       "A former IAF helicopter pilot and Senior Fellow at MP-IDSA, he writes on Atmanirbharta in naval aviation.",
     image: contributorImage("rk narang"),
@@ -191,7 +212,8 @@ export const AUTHORS = [
   {
     name: "Mr. Pawan Kakkar",
     rank: "Chief Executive Officer, Jugapro India",
-    specialty: "Emerging defence technologies, UAVs, and counter-unmanned systems.",
+    specialty:
+      "Emerging defence technologies, UAVs, and counter-unmanned systems.",
     summary:
       "An industry leader in advanced construction and defence technologies, he studies counter-UAS innovation and operational relevance.",
     image: contributorImage("pawan kakkar"),
@@ -199,7 +221,8 @@ export const AUTHORS = [
   {
     name: "Dr. Indranil Roy",
     rank: "Co-founder and SVP, Natural Intelligence Systems",
-    specialty: "Neuromorphic computing, defence research, and manufacturing.",
+    specialty:
+      "Neuromorphic computing, defence research, and manufacturing.",
     summary:
       "A technology builder and researcher, he writes on the need for a builder's psyche in pursuing Atmanirbharta in defence.",
     image: contributorImage("indranil"),
@@ -207,44 +230,47 @@ export const AUTHORS = [
   {
     name: "Mr. Jaidev Jamwal",
     rank: "Defence Analyst",
-    specialty: "Chinese and Pakistani order of battle, force structure, and deployments.",
+    specialty:
+      "Chinese and Pakistani order of battle, force structure, and deployments.",
     summary:
       "A military affairs analyst and ORBAT author, he studies China's Western Theatre Command and the PLA's evolving posture.",
     image: contributorImage("jaidev"),
-  },
-  {
-    name: "Mr. Adithya Kothandhapani",
-    rank: "Aerospace Engineer",
-    specialty: "LEO, cis-lunar missions, satellite tracking, and OSINT validation.",
-    summary:
-      "He combines space engineering with policy analysis to examine the cost of chasing China in space.",
-    image: contributorImage("adithya kothandhapani"),
-  },
-  {
-    name: "Mr. Sameep Agarwal",
-    rank: "Cybersecurity Expert",
-    specialty: "Cyber intelligence, digital forensics, homeland security, and threat intelligence.",
-    summary:
-      "A cybersecurity practitioner associated with national security work, he analyses India's challenges in cyber warfare capability.",
-    image: contributorImage("sameep"),
-  },
-  {
-    name: "Captain Sarabjeet Singh Parmar",
-    rank: "Former Navy helicopter pilot",
-    specialty: "Maritime strategy, Indian Ocean security, and naval transformation.",
-    summary:
-      "Captain Sarabjeet Singh Parmar is a former Navy helicopter pilot and has commanded Indian Navy Ships and an Indian Naval Air Squadron.",
-    image: contributorImage("sarabjeet singh parmar"),
-  },
+  }
+  // {
+  //   name: "Mr. Adithya Kothandhapani",
+  //   rank: "Aerospace Engineer",
+  //   specialty:
+  //     "LEO, cis-lunar missions, satellite tracking, and OSINT validation.",
+  //   summary:
+  //     "He combines space engineering with policy analysis to examine the cost of chasing China in space.",
+  //   image: contributorImage("adithya kothandhapani"),
+  // },
+  // {
+  //   name: "Mr. Sameep Agarwal",
+  //   rank: "Cybersecurity Expert",
+  //   specialty:
+  //     "Cyber intelligence, digital forensics, homeland security, and threat intelligence.",
+  //   summary:
+  //     "A cybersecurity practitioner associated with national security work, he analyses India's challenges in cyber warfare capability.",
+  //   image: contributorImage("sameep"),
+  // },
+  // {
+  //   name: "Captain Sarabjeet Singh Parmar",
+  //   rank: "Former Navy helicopter pilot",
+  //   specialty:
+  //     "Maritime strategy, Indian Ocean security, and naval transformation.",
+  //   summary:
+  //     "Captain Sarabjeet Singh Parmar is a former Navy helicopter pilot and has commanded Indian Navy Ships and an Indian Naval Air Squadron.",
+  //   image: contributorImage("sarabjeet singh parmar"),
+  // },
 ];
 
-// Issue II contributors, in the order supplied by the editorial team.
-// `null` as the image key means no portrait has been supplied yet.
 export const AUTHORS_ISSUE_2 = [
   {
-    name: "Prof. (Dr.) Sukhwant S. Bindra", 
+    name: "Prof. (Dr.) Sukhwant S. Bindra",
     rank: "Director (Research), Amity Institute of International Studies",
-    specialty: "International relations, foreign policy analysis, and political theory.",
+    specialty:
+      "International relations, foreign policy analysis, and political theory.",
     summary:
       "Nearly five decades of teaching and research, over 70 published papers, and an advisory role with the Union Public Service Commission.",
     image: contributorImageIssueTwo("sukhwant singh bindra"),
@@ -252,7 +278,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Prof. (Dr.) Cdr. Bhushan Dewan",
     rank: "Commander (Retd.)",
-    specialty: "Entrepreneurship, innovation, technology, and educational leadership.",
+    specialty:
+      "Entrepreneurship, innovation, technology, and educational leadership.",
     summary:
       "A 1971 war veteran and author of four books, he has led at TCS, Tanla Solutions and the Adani Group, and served as Founding Provost and Pro Vice-Chancellor.",
     image: contributorImageIssueTwo("bhushan dewan"),
@@ -260,7 +287,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Prof. (Dr.) Y. Nithiyanandam",
     rank: "Head, Geospatial Research Programme, Takshashila Institution",
-    specialty: "Geospatial intelligence, remote sensing, GIS analytics, and geospatial policy.",
+    specialty:
+      "Geospatial intelligence, remote sensing, GIS analytics, and geospatial policy.",
     summary:
       "Lead author of the Takshashila Geospatial Bulletin, he has established geospatial programmes at leading Indian institutions.",
     image: contributorImageIssueTwo("nithiyanandam"),
@@ -268,7 +296,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Air Mshl. Anil Khosla",
     rank: "PVSM, AVSM, VM, ADC (Retd.)",
-    specialty: "Ground attack, air defence, and maritime air operations.",
+    specialty:
+      "Ground attack, air defence, and maritime air operations.",
     summary:
       "A former Vice Chief of the Air Staff with over 4,000 hours on the Jaguar and MiG-21, he writes on integrating air operations for credible conventional deterrence.",
     image: contributorImageIssueTwo("anil khosla"),
@@ -276,7 +305,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Air Mshl. Anil Chopra",
     rank: "PVSM, AVSM, VM, VSM (Retd.)",
-    specialty: "Air power, flight testing, and aerospace capability.",
+    specialty:
+      "Air power, flight testing, and aerospace capability.",
     summary:
       "A test pilot and Mirage-2000 pioneer, and former Director General of the Centre for Air Power Studies, he examines Indian missiles pushing ahead with precision and reach.",
     image: contributorImageIssueTwo("anil chopra"),
@@ -284,7 +314,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Lt. Gen. (Dr.) Sunil Kumar Gadeock",
     rank: "AVSM (Retd.)",
-    specialty: "Defence logistics, military training, and defence education.",
+    specialty:
+      "Defence logistics, military training, and defence education.",
     summary:
       "A Brigade of the Guards veteran and former Logistics Advisor to the Botswana Defence Force, he writes on the Russian-Ukrainian war conundrum and the way forward.",
     image: contributorImageIssueTwo("sunil kumar gadeock"),
@@ -292,7 +323,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Lt. Gen. Vijay Singh",
     rank: "Lieutenant General (Retd.)",
-    specialty: "Counter-insurgency, border management, and UN peacekeeping.",
+    specialty:
+      "Counter-insurgency, border management, and UN peacekeeping.",
     summary:
       "A 9th Gorkha Rifles veteran and former Chief of Staff, South Western Command, he studies the power dynamics shaping India's strategic environment.",
     image: contributorImageIssueTwo("vijay singh"),
@@ -300,7 +332,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Maj. Gen. Brajesh Kumar",
     rank: "AVSM, VSM (Retd.)",
-    specialty: "Defence infrastructure, project execution, and military engineering.",
+    specialty:
+      "Defence infrastructure, project execution, and military engineering.",
     summary:
       "A Corps of Engineers veteran of 39 years, he oversaw tri-service infrastructure projects with annual capital expenditure above ₹6,500 crore.",
     image: contributorImageIssueTwo("brajesh kumar"),
@@ -308,7 +341,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Col. (Dr.) Amitabh Hoskote",
     rank: "Colonel (Retd.)",
-    specialty: "Military doctrine, conflict and security, and post-conflict transition.",
+    specialty:
+      "Military doctrine, conflict and security, and post-conflict transition.",
     summary:
       "Senior Fellow and PhD supervisor at CLAWS-MAHE, he researches new-age threats and security in the nuclearised subcontinent.",
     image: contributorImageIssueTwo("amitabh hoskote"),
@@ -316,7 +350,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Col. Amitabh Bhagat",
     rank: "Colonel (Retd.)",
-    specialty: "Defence policy, procurement, and international security.",
+    specialty:
+      "Defence policy, procurement, and international security.",
     summary:
       "An Army veteran and former BAE Systems business leader, he brings three decades across military service and the aerospace and defence industry.",
     image: contributorImageIssueTwo("amitabh bhagat"),
@@ -324,7 +359,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Col. Shailender Arya",
     rank: "Colonel (Retd.)",
-    specialty: "Geopolitics, defence and aerospace policy, and risk advisory.",
+    specialty:
+      "Geopolitics, defence and aerospace policy, and risk advisory.",
     summary:
       "Senior Advisor at The Asia Group and an Adviser in the Ministry of Defence from 2020 to 2025, he has helped shape Indian policy and regulatory frameworks.",
     image: contributorImageIssueTwo("shailender arya"),
@@ -332,7 +368,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Mr. Adithya Krishna Menon",
     rank: "India Contributor, Naval News",
-    specialty: "Naval technology, indigenous R&D, and defence procurement.",
+    specialty:
+      "Naval technology, indigenous R&D, and defence procurement.",
     summary:
       "He tracks naval developments across the Indian Ocean Region, from modernisation and procurement to India's defence export efforts.",
     image: contributorImageIssueTwo("adithya krishna menon"),
@@ -340,7 +377,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Mr. Kartikeya Gupt",
     rank: "Co-founder, C SCAN",
-    specialty: "Strategy and air power theory.",
+    specialty:
+      "Strategy and air power theory.",
     summary:
       "Previously with Janes, WikiStrat and the National Maritime Foundation, he studies strategy and air power theory.",
     image: contributorImageIssueTwo("kartikeya gupta"),
@@ -348,7 +386,8 @@ export const AUTHORS_ISSUE_2 = [
   {
     name: "Mr. Pranav K. Paranjape",
     rank: "Amity Institute of Defence and Strategic Studies",
-    specialty: "Military history, land warfare, and the Af-Pak region.",
+    specialty:
+      "Military history, land warfare, and the Af-Pak region.",
     summary:
       "An avid reader of military history, his work focuses on India's western neighbourhood.",
     image: contributorImageIssueTwo("pranav"),
@@ -356,8 +395,18 @@ export const AUTHORS_ISSUE_2 = [
 ];
 
 export const AUTHOR_ISSUES = [
-  { id: "issue-2", ordinal: "II", label: "Issue II", authors: AUTHORS_ISSUE_2 },
-  { id: "issue-1", ordinal: "I", label: "Issue I", authors: AUTHORS },
+  {
+    id: "issue-2",
+    ordinal: "II",
+    label: "Issue II",
+    authors: AUTHORS_ISSUE_2,
+  },
+  {
+    id: "issue-1",
+    ordinal: "I",
+    label: "Issue I",
+    authors: AUTHORS,
+  },
 ];
 
 export const ARTICLE_ACCESS_OPTIONS = [
@@ -386,31 +435,36 @@ export const LENSES = [
     id: "armament",
     index: "01",
     title: "Armament",
-    copy: "Concerns the means of war: weapons, platforms, logistics, industrial capacity, supply chains, and sustainment.",
+    copy:
+      "Concerns the means of war: weapons, platforms, logistics, industrial capacity, supply chains, and sustainment.",
   },
   {
     id: "doctrine",
     index: "02",
     title: "Doctrine",
-    copy: "Concerns the ideas of war: how force is conceptualised, organised, and employed to achieve political ends.",
+    copy:
+      "Concerns the ideas of war: how force is conceptualised, organised, and employed to achieve political ends.",
   },
   {
     id: "initiative",
     index: "03",
     title: "Initiative",
-    copy: "Concerns agency and choice: who sets the agenda, controls escalation, and dictates tempo under uncertainty.",
+    copy:
+      "Concerns agency and choice: who sets the agenda, controls escalation, and dictates tempo under uncertainty.",
   },
   {
     id: "terrain",
     index: "04",
     title: "Terrain",
-    copy: "Concerns the environment of conflict: physical, political, technological, informational, legal, or cognitive.",
+    copy:
+      "Concerns the environment of conflict: physical, political, technological, informational, legal, or cognitive.",
   },
   {
     id: "integration",
     index: "05",
     title: "Integration",
-    copy: "Concerns the joining of parts: civil-military fusion, inter-service coordination, whole-of-government or nation approaches.",
+    copy:
+      "Concerns the joining of parts: civil-military fusion, inter-service coordination, whole-of-government or nation approaches.",
   },
 ];
 
@@ -425,71 +479,147 @@ export const DISPATCHES = [
     type: "free",
     href: "/articles/builders-psyche-atmanirbharta-defence",
     slug: "builders-psyche-atmanirbharta-defence",
-    contentPath: "/articles/builders-psyche-atmanirbharta-defence.txt",
-    image: "/article-banners/builders-psyche-atmanirbharta-defence-banner.png",
+    contentPath:
+      "/articles/builders-psyche-atmanirbharta-defence.txt",
+    image:
+      "/article-banners/builders-psyche-atmanirbharta-defence-banner.png",
     tag: "Initiative",
-    title: "The Need for a Builder's Psyche in the Pursuit of Atmanirbharta in Defence",
+    title:
+      "The Need for a Builder's Psyche in the Pursuit of Atmanirbharta in Defence",
     teaser:
       "Dr. Indranil Roy argues that Atmanirbharta depends on building, testing, producing, deploying, and iterating domestic weapons.",
     author: "Dr. Indranil Roy",
     readTime: "10 min read",
     cta: "Read",
     priceLabel: "Free",
-    ariaLabel: "Read The Need for a Builder's Psyche in the Pursuit of Atmanirbharta in Defence",
+    ariaLabel:
+      "Read The Need for a Builder's Psyche in the Pursuit of Atmanirbharta in Defence",
   },
+
   {
     type: "free",
     href: "/articles/china-western-theatre-command-evolving-posture",
     slug: "china-western-theatre-command-evolving-posture",
-    contentPath: "/articles/china-western-theatre-command-evolving-posture.txt",
-    image: "/article-banners/china-western-theatre-command-evolving-posture-banner.png",
+    contentPath:
+      "/articles/china-western-theatre-command-evolving-posture.txt",
+    image:
+      "/article-banners/china-western-theatre-command-evolving-posture-banner.png",
     tag: "Armament",
-    title: "China's Western Theatre Command and PLA's Evolving Posture",
+    title:
+      "China's Western Theatre Command and PLA's Evolving Posture",
     teaser:
       "Jaidev Jamwal maps the Western Theatre Command's reforms, logistics, airpower, air defence, missiles, and multi-domain posture.",
     author: "Mr. Jaidev Jamwal",
     readTime: "12 min read",
     cta: "Read",
     priceLabel: "Free",
-    ariaLabel: "Read China's Western Theatre Command and PLA's Evolving Posture",
+    ariaLabel:
+      "Read China's Western Theatre Command and PLA's Evolving Posture",
   },
+
   {
     type: "free",
     href: "/articles/challenges-of-atmanirbharta-in-naval-aviation",
     slug: "challenges-of-atmanirbharta-in-naval-aviation",
-    contentPath: "/articles/challenges-of-atmanirbharta-in-naval-aviation.txt",
-    image: "/article-banners/challenges-of-atmanirbharta-in-naval-aviation-banner.png",
+    contentPath:
+      "/articles/challenges-of-atmanirbharta-in-naval-aviation.txt",
+    image:
+      "/article-banners/challenges-of-atmanirbharta-in-naval-aviation-banner.png",
     tag: "Armament",
-    title: "Challenges of Atmanirbharta in Naval Aviation",
+    title:
+      "Challenges of Atmanirbharta in Naval Aviation",
     teaser:
       "Gp Capt Rajiv Kumar Narang examines why naval aviation has not followed the Navy's shipbuilding self-reliance trajectory.",
-    author: "Gp Capt (Dr.) Rajiv Kumar Narang VM (Retd.)",
+    author:
+      "Gp Capt (Dr.) Rajiv Kumar Narang VM (Retd.)",
     readTime: "9 min read",
     cta: "Read",
     priceLabel: "Free",
-    ariaLabel: "Read Challenges of Atmanirbharta in Naval Aviation",
+    ariaLabel:
+      "Read Challenges of Atmanirbharta in Naval Aviation",
   },
+
   {
     type: "free",
-    href: "/articles/followers-dilemma-cost-of-chasing-china-in-space",
-    slug: "followers-dilemma-cost-of-chasing-china-in-space",
-    contentPath: "/articles/followers-dilemma-cost-of-chasing-china-in-space.txt",
-    image: "/article-doc-assets/followers-dilemma-cost-of-chasing-china-in-space/image-2.png",
+    href:
+      "/articles/followers-dilemma-cost-of-chasing-china-in-space",
+    slug:
+      "followers-dilemma-cost-of-chasing-china-in-space",
+    contentPath:
+      "/articles/followers-dilemma-cost-of-chasing-china-in-space.txt",
+    image:
+      "/article-doc-assets/followers-dilemma-cost-of-chasing-china-in-space/image-2.png",
     tag: "Initiative",
-    title: "The Follower's Dilemma: The Cost of Chasing China in Space",
+    title:
+      "The Follower's Dilemma: The Cost of Chasing China in Space",
     teaser:
       "Adithya Kothandhapani argues that India's space strategy must solve Indian constraints instead of validating Chinese metrics.",
-    author: "Adithya Kothandhapani, Independent Space Analyst",
+    author:
+      "Adithya Kothandhapani, Independent Space Analyst",
     readTime: "12 min read",
     cta: "Read",
     priceLabel: "Free",
-    ariaLabel: "Read The Follower's Dilemma: The Cost of Chasing China in Space",
+    ariaLabel:
+      "Read The Follower's Dilemma: The Cost of Chasing China in Space",
   },
+
+  // ============================================================
+  // CONTROL OF AIR — UPDATED
+  // ============================================================
+  {
+    type: "free",
+    href: "/articles/control-of-air-future-regional-dynamics",
+    slug: "control-of-air-future-regional-dynamics",
+    contentPath:
+      "/articles/control-of-air-future-regional-dynamics.txt",
+    image:
+      "/article-banners/control-of-air-future-regional-dynamics.png",
+    tag: "Armament",
+    title: "Control of Air: Future Regional Dynamics",
+    teaser:
+      "Air Marshal (Dr) Diptendu Choudhury examines the enduring importance of control of air in contemporary conflicts and India's future multi-domain operations.",
+    author:
+      "Air Marshal (Dr) Diptendu Choudhury (Retd) PVSM, AVSM, VM, VSM",
+    readTime: "12 min read",
+    cta: "Read",
+    priceLabel: "Free",
+    ariaLabel:
+      "Read Control of Air: Future Regional Dynamics",
+  },
+
+  // ============================================================
+  // GEOINT — UPDATED
+  // ============================================================
+  {
+    type: "free",
+    href:
+      "/articles/geospatial-intelligence-india-future-defence-edge",
+    slug:
+      "geospatial-intelligence-india-future-defence-edge",
+    contentPath:
+      "/articles/geospatial-intelligence-india-future-defence-edge.txt",
+    image:
+      "/article-banners/geospatial-intelligence-india-future-defence-edge.jpg",
+    tag: "Terrain",
+    title:
+      "Geospatial Intelligence and India's Future Defence Edge",
+    teaser:
+      "Prof. (Dr.) Y. Nithiyanandam explains how integrated geospatial intelligence can strengthen India's understanding of terrain, movement, infrastructure, and future defence operations.",
+    author:
+      "Prof. (Dr.) Y. Nithiyanandam",
+    readTime: "10 min read",
+    cta: "Read",
+    priceLabel: "Free",
+    ariaLabel:
+      "Read Geospatial Intelligence and India's Future Defence Edge",
+  },
+
   {
     type: "premium",
     href: "/checkout",
     slug: "aditi-strategy-defence-volume-1-issue-1",
-    image: "/article-banners/aditi-strategy-defence-magazine-mockup.webp",
+    image:
+      "/article-banners/aditi-strategy-defence-magazine-mockup.webp",
     tag: "Premium Magazine",
     title:
       "ADITI Strategy & Defence Magazine - Volume 1, Issue 1: Cognitive Dissonance in Indian Strategy",
@@ -502,11 +632,13 @@ export const DISPATCHES = [
     ariaLabel:
       "Buy ADITI Strategy and Defence Magazine Volume 1 Issue 1",
   },
+
   {
     type: "premium",
     href: "/checkout",
     slug: "aditi-strategy-defence-volume-1-issue-2",
-    image: "/article-banners/aditi-magazine-issue-2-mockup.webp",
+    image:
+      "/article-banners/aditi-magazine-issue-2-mockup.webp",
     tag: "Premium Magazine",
     title:
       "ADITI Strategy & Defence Magazine - Volume 1, Issue 2: Forging the Republic's Power",
@@ -521,51 +653,66 @@ export const DISPATCHES = [
   },
 ];
 
-// Every purchasable issue, newest first. `slug` must match the `magazines.slug`
-// column in the backend catalogue.
+// Every purchasable issue, newest first.
+// `slug` must match the `magazines.slug` column in the backend catalogue.
 export const MAGAZINE_ISSUES = [
   {
     ordinal: "II",
     label: "Issue II",
     slug: "aditi-strategy-defence-volume-1-issue-2",
     shortTitle: "Forging the Republic's Power",
-    cover: "/article-banners/aditi-strategy-defence-magazine-issue-2-cover.webp",
+    cover:
+      "/article-banners/aditi-strategy-defence-magazine-issue-2-cover.webp",
   },
   {
     ordinal: "I",
     label: "Issue I",
     slug: "aditi-strategy-defence-volume-1-issue-1",
-    shortTitle: "Cognitive Dissonance in Indian Strategy",
-    cover: "/article-banners/aditi-strategy-defence-magazine-cover.webp",
+    shortTitle:
+      "Cognitive Dissonance in Indian Strategy",
+    cover:
+      "/article-banners/aditi-strategy-defence-magazine-cover.webp",
   },
-].map((issue) => ({ ...issue, priceLabel: PREMIUM_MAGAZINE_PRICE_LABEL }));
+].map((issue) => ({
+  ...issue,
+  priceLabel: PREMIUM_MAGAZINE_PRICE_LABEL,
+}));
 
 export const LATEST_MAGAZINE_ISSUE = MAGAZINE_ISSUES[0];
 
 export function magazineForIssue(ordinal) {
-  const issue = MAGAZINE_ISSUES.find((item) => item.ordinal === ordinal);
+  const issue = MAGAZINE_ISSUES.find(
+    (item) => item.ordinal === ordinal
+  );
 
-  return DISPATCHES.find((item) => item.slug === issue?.slug) ?? null;
+  return (
+    DISPATCHES.find(
+      (item) => item.slug === issue?.slug
+    ) ?? null
+  );
 }
 
 export const FEEDBACKS = [
   {
     category: "Strategic Affairs",
-    quote: "The battlefield begins long before the first shot.",
+    quote:
+      "The battlefield begins long before the first shot.",
     name: "Meera Rao",
     role: "Strategic Affairs Editor",
     image: "https://i.pravatar.cc/160?img=32",
   },
   {
     category: "Defence Technology",
-    quote: "Platforms matter when they change political options.",
+    quote:
+      "Platforms matter when they change political options.",
     name: "Kabir Menon",
     role: "Defence Technology Analyst",
     image: "https://i.pravatar.cc/160?img=12",
   },
   {
     category: "Geopolitics",
-    quote: "Sovereignty is a habit before it is a headline.",
+    quote:
+      "Sovereignty is a habit before it is a headline.",
     name: "Arjun Sethi",
     role: "Geopolitics Contributor",
     image: "https://i.pravatar.cc/160?img=56",
@@ -575,70 +722,80 @@ export const FEEDBACKS = [
 export const READER_FEEDBACKS = [
   {
     category: "Reader View",
-    quote: "Came across ADITI on Instagram and ended up reading a couple of articles. Safe to say I'll be coming back for more.",
+    quote:
+      "Came across ADITI on Instagram and ended up reading a couple of articles. Safe to say I'll be coming back for more.",
     name: "Khushbu",
     role: "Reader",
     image: readerKhushbu,
   },
   {
     category: "Credibility Note",
-    quote: "Not many pages manage to keep defence content both credible and engaging. This one does.",
+    quote:
+      "Not many pages manage to keep defence content both credible and engaging. This one does.",
     name: "Geetanjali Bhati",
     role: "Reader",
     image: readerGeetanjali,
   },
   {
     category: "Editorial View",
-    quote: "ADITI brings discipline, design, and depth together; it makes serious strategic writing easier to follow and worth returning to.",
+    quote:
+      "ADITI brings discipline, design, and depth together; it makes serious strategic writing easier to follow and worth returning to.",
     name: "Ankit",
     role: "Reader",
     image: readerAnkit,
   },
   {
     category: "Quality Note",
-    quote: "This deserves a much bigger audience. Really impressed with the quality of the articles.",
+    quote:
+      "This deserves a much bigger audience. Really impressed with the quality of the articles.",
     name: "Dhruv Sharma",
     role: "Reader",
     image: readerDhruv,
   },
   {
     category: "Defence Affairs",
-    quote: "As someone interested in defence affairs, this is exactly the kind of content I've been looking for.",
+    quote:
+      "As someone interested in defence affairs, this is exactly the kind of content I've been looking for.",
     name: "Amita Pilania",
     role: "Reader",
     image: readerAmita,
   },
   {
     category: "Regular Reader",
-    quote: "Been following for a while now, and the articles just keep getting better. Great work by the team.",
+    quote:
+      "Been following for a while now, and the articles just keep getting better. Great work by the team.",
     name: "Akash Bhushan",
     role: "Reader",
     image: readerAkash,
   },
   {
     category: "Reader Note",
-    quote: "Finally, defence content that isn't just clickbait.",
+    quote:
+      "Finally, defence content that isn't just clickbait.",
     name: "Ritika Basera",
     role: "Reader",
     image: readerRitika,
   },
   {
     category: "Writing Note",
-    quote: "The writing feels thoughtful and well put together. Great work!",
+    quote:
+      "The writing feels thoughtful and well put together. Great work!",
     name: "Shivam Kikan",
     role: "Reader",
     image: readerShivam,
   },
   {
     category: "Perspective",
-    quote: "Every article feels like it gives me a new perspective.",
+    quote:
+      "Every article feels like it gives me a new perspective.",
     name: "Bhumika",
     role: "Reader",
     image: readerBhumika,
   },
   {
     category: "Strategic Affairs",
-    quote: "This feels like a page made for people who genuinely want to understand strategic affairs.",
+    quote:
+      "This feels like a page made for people who genuinely want to understand strategic affairs.",
     name: "Ayush Negi",
     role: "Reader",
     image: readerAyush,
@@ -655,7 +812,7 @@ export const EDITION_STATS = [
   },
   {
     value: PREMIUM_MAGAZINE_PRICE_RUPEES,
-    prefix: "\u20B9",
+    prefix: "₹",
     label: "Per Dispatch",
     tagline: "Pay per essay, not per month",
     description:
@@ -678,7 +835,8 @@ export const OJAS_PANELS = [
     headline: "Arguments sharpened in public",
     copy:
       "A yearly gathering where India's strategic community debates doctrine, deterrence, and national intent across disciplines and domains.",
-    detail: "Keynotes - Panels - Working sessions - Land - Sea - Air - Cyber - Space - Statecraft",
+    detail:
+      "Keynotes - Panels - Working sessions - Land - Sea - Air - Cyber - Space - Statecraft",
   },
   {
     id: "heritage",
@@ -699,12 +857,14 @@ export const FAQ_ITEMS = [
       "The complete first issue — all sixteen contributions, the full magazine, not a sample. It's yours to keep and re-read, on mobile or desktop, from the moment your payment clears.",
   },
   {
-    question: "Is this a subscription? Will I be charged again?",
+    question:
+      "Is this a subscription? Will I be charged again?",
     answer:
       "No. Issue I is a single purchase — one payment, no auto-renewal, nothing recurring. A full subscription opens in July with our new website, but it will always sit alongside the option to buy a single issue. You commit to nothing today beyond this one issue.",
   },
   {
-    question: "I've never read defence or strategy writing. Is this for me?",
+    question:
+      "I've never read defence or strategy writing. Is this for me?",
     answer:
       "Yes — that's exactly who it's for. ADITI takes the depth of a strategic briefing and writes it in plain language. You don't need a defence background.",
   },
@@ -724,10 +884,17 @@ export const FAQ_ITEMS = [
       "Yes — three primers are open and free. Read them here. They show you exactly how ADITI reasons before you spend a rupee.",
   },
   {
-    question: "When is the next issue, and will I get it?",
+    question:
+      "When is the next issue, and will I get it?",
     answer:
       "Issue II — Forging the Republic's Power — arrives in July. Buy Issue I now and you'll be reading ADITI from its very first edition — first in line for every issue that follows.",
   },
 ];
 
-export { heroVideo, heroMobileVideo, frameworkBg, logoMark, navbarLogo };
+export {
+  heroVideo,
+  heroMobileVideo,
+  frameworkBg,
+  logoMark,
+  navbarLogo,
+};
