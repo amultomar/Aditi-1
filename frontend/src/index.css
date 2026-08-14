@@ -1403,26 +1403,15 @@ body.menu-open {
 }
 .issue-book-3d {
   position: relative;
-  width: min(100%, 22rem);
+  width: min(100%, 24rem);
   aspect-ratio: 4 / 5.2;
-  transform-style: preserve-3d;
-  transform: rotateY(-12deg) rotateX(3deg) translateY(0);
-  animation:
-    bookFloat 5s ease-in-out infinite,
-    bookFlipIn 800ms cubic-bezier(0.22, 1, 0.36, 1);
-  transition:
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.8s ease;
-  filter:
-    drop-shadow(0 40px 70px rgba(0,0,0,0.45))
-    drop-shadow(8px 0 18px rgba(201,154,74,0.18));
+  transform: none;
+  animation: none;
+  transition: transform 300ms ease;
 }
 
 .issue-book-3d:hover {
-  transform: rotateY(-5deg) rotateX(1deg) translateY(-14px) scale(1.02);
-  filter:
-    drop-shadow(0 55px 90px rgba(0,0,0,0.55))
-    drop-shadow(12px 0 28px rgba(201,154,74,0.28));
+  transform: translateY(-2px);
 }
 
 .issue-book-cover,
@@ -1449,35 +1438,20 @@ body.menu-open {
   transform: rotateY(180deg) translateZ(12px);
 }
 
-.issue-book-spine {
-  position: absolute;
-  left: -18px;
-  top: 4px;
-  bottom: 4px;
-  width: 22px;
-  background: linear-gradient(
-    to right,
-    #2b2419 0%,
-    #6d5228 18%,
-    #c99a4a 50%,
-    #e7c67d 65%,
-    #8f6a32 82%,
-    #2b2419 100%
-  );
-  transform: rotateY(90deg) translateZ(10px);
-  border-radius: 4px;
-  box-shadow:
-    inset 1px 0 2px rgba(255,255,255,0.25),
-    inset -2px 0 4px rgba(0,0,0,0.35);
+.issue-book-pages {
+  display: none;
 }
 
 .issue-book-cover {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 0;
   z-index: 3;
-  transform: translateZ(6px);
+  transform: none;
+  background: #efe8db;
+  border: 14px solid #efe8db;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
 }
 ..issue-book-pages {
   position: absolute;
@@ -1537,20 +1511,7 @@ body.menu-open {
 }
 
 .issue-book-3d::after {
-  content: "";
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  bottom: -40px;
-  height: 48px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0,0,0,0.42) 0%,
-    rgba(0,0,0,0.22) 35%,
-    transparent 75%
-  );
-  transform: translateZ(-30px);
-  filter: blur(14px);
+  display: none;
 }
 @keyframes bookFloat {
   0%, 100% {
@@ -1569,18 +1530,18 @@ body.menu-open {
 @keyframes bookFlipIn {
   from {
     opacity: 0;
-    transform: rotateY(-90deg) rotateX(10deg) translateX(-20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
-    transform: rotateY(-18deg) rotateX(6deg);
+    transform: translateY(0);
   }
 }
 
 @media (max-width: 768px) {
   .issue-book-3d {
     width: min(100%, 18rem);
-    transform: rotateY(-12deg) rotateX(4deg);
+    transform: none;
   }
 }
 
