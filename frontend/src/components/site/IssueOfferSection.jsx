@@ -1,12 +1,17 @@
-import { useState } from "react";
-import { Check, ChevronLeft, ChevronRight } from "lucide-react";
+import { Check } from "lucide-react";
 
 import SectionReveal from "@/components/site/SectionReveal";
 import { AddToCartButton } from "@/components/site/shared";
-import { AUTHOR_ISSUES, MAGAZINE_ISSUES, magazineForIssue } from "@/data/siteContent";
+import {
+  AUTHOR_ISSUES,
+  MAGAZINE_ISSUES,
+  magazineForIssue,
+} from "@/data/siteContent";
 
 function contributorCount(ordinal) {
-  return AUTHOR_ISSUES.find((issue) => issue.ordinal === ordinal)?.authors.length ?? 0;
+  return (
+    AUTHOR_ISSUES.find((issue) => issue.ordinal === ordinal)?.authors.length ?? 0
+  );
 }
 
 function offerPoints(ordinal) {
@@ -21,7 +26,6 @@ function offerPoints(ordinal) {
   ];
 }
 
-// Newest issue first, matching the order on the issue carousel.
 const OFFER_CARDS = MAGAZINE_ISSUES.map((issue) => ({
   ...issue,
   magazine: magazineForIssue(issue.ordinal),
@@ -29,106 +33,175 @@ const OFFER_CARDS = MAGAZINE_ISSUES.map((issue) => ({
 })).filter((card) => card.magazine);
 
 export default function IssueOfferSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   if (!OFFER_CARDS.length) {
     return null;
   }
-
-  const card = OFFER_CARDS[Math.min(activeIndex, OFFER_CARDS.length - 1)];
-  const canGoNewer = activeIndex > 0;
-  const canGoOlder = activeIndex < OFFER_CARDS.length - 1;
 
   return (
     <section className="issue-offer-section border-t border-steel px-4 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-6xl">
         <SectionReveal>
+          {/* =========================
+              SECTION HEADING
+          ========================== */}
           <div className="issue-offer-heading text-center">
             <p className="font-plex text-xs font-medium uppercase tracking-[0.28em] text-ember">
               The Offer
             </p>
+
             <h2 className="issue-offer-title mt-3 font-rajdhani font-bold text-chalk">
               Be the one in the room
               <span className="issue-offer-title__accent">
                 who actually <span>understands.</span>
               </span>
             </h2>
+
             <p className="mx-auto mt-5 max-w-3xl font-lora text-sm leading-[1.8] text-ash md:text-base">
-              One purchase, yours forever. Every issue you buy lives in your ADITI
-              account {" "}&mdash; read anytime, on any device.
+              One purchase, yours forever. Every issue you buy lives in your
+              ADITI account &mdash; read anytime, on any device.
             </p>
           </div>
 
+          {/* =========================
+              SIDE-BY-SIDE ISSUE CARDS
+          ========================== */}
           <div
-            className="issue-offer-carousel"
-            role="group"
-            aria-roledescription="carousel"
-            aria-label="Issue offers"
+            className="
+              issue-offer-grid
+              mt-10
+              grid
+              grid-cols-1
+              gap-6
+              md:mt-14
+              lg:grid-cols-2
+              lg:gap-8
+            "
+            aria-label="ADITI magazine issue offers"
           >
-            <article className="issue-offer-card" key={card.slug}>
-              <div className="issue-offer-badge">
-                Volume I {"·"} {card.label}
-              </div>
-              <div className="issue-offer-price">
-                <span>{"₹"}</span>
-                <strong>{card.magazine.priceLabel.replace("₹", "")}</strong>
-              </div>
-              <h3>The complete issue</h3>
-              <p className="issue-offer-subtitle">
-                {card.label} &mdash; {card.shortTitle}.
-              </p>
-
-              <ul className="issue-offer-list">
-                {card.points.map((point) => (
-                  <li key={point}>
-                    <Check className="size-4" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <AddToCartButton
-                article={card.magazine}
-                stopPropagation={false}
-                className="final-button issue-offer-button h-12 w-full rounded-none font-rajdhani text-base font-bold"
+            {OFFER_CARDS.map((card) => (
+              <article
+                className="
+                  issue-offer-card
+                  relative
+                  flex
+                  flex-col
+                  !overflow-visible
+                "
+                key={card.slug}
               >
-                Own {card.label} {"·"} {card.magazine.priceLabel}
-              </AddToCartButton>
-
-              <p className="issue-offer-footnote">
-                Secure checkout {"·"} Instant access
-              </p>
-            </article>
-
-            {OFFER_CARDS.length > 1 ? (
-              <div className="issue-offer-nav">
-                <button
-                  type="button"
-                  className="issue-offer-nav__button"
-                  aria-label="Show the newer issue"
-                  disabled={!canGoNewer}
-                  onClick={() => setActiveIndex((index) => Math.max(0, index - 1))}
+                {/* =========================
+                    ISSUE BADGE
+                ========================== */}
+                <div
+                  className="
+                    issue-offer-badge
+                    relative
+                    z-10
+                    mx-auto
+                    mb-4
+                    whitespace-nowrap
+                  "
                 >
-                  <ChevronLeft className="size-5" />
-                </button>
-                <p className="issue-offer-nav__status" aria-live="polite">
-                  {card.label} 
+                  Volume I {"·"} {card.label}
+                </div>
+
+                {/* =========================
+                    MAGAZINE COVER
+                ========================== */}
+                <div
+                  className="
+                    issue-offer-cover-wrap
+                    flex
+                    justify-center
+                    px-4
+                    pt-1
+                    pb-3
+                  "
+                >
+                  <div className="issue-offer-cover-frame">
+                    <img
+                      src={card.cover}
+                      alt={`${card.label} magazine cover`}
+                      className="
+                        issue-offer-cover
+                        block
+                        h-auto
+                        w-[105px]
+                        max-w-[105px]
+                        object-contain
+                        sm:w-[115px]
+                        sm:max-w-[115px]
+                        md:w-[125px]
+                        md:max-w-[125px]
+                      "
+                    />
+                  </div>
+                </div>
+
+                {/* =========================
+                    PRICE
+                ========================== */}
+                <div className="issue-offer-price">
+                  <span>₹</span>
+
+                  <strong>
+                    {card.magazine.priceLabel.replace("₹", "")}
+                  </strong>
+                </div>
+
+                {/* =========================
+                    TITLE
+                ========================== */}
+                <h3>The complete issue</h3>
+
+                {/* =========================
+                    SUBTITLE
+                ========================== */}
+                <p className="issue-offer-subtitle">
+                  {card.label} &mdash; {card.shortTitle}.
                 </p>
-                <button
-                  type="button"
-                  className="issue-offer-nav__button"
-                  aria-label="Show the previous issue"
-                  disabled={!canGoOlder}
-                  onClick={() =>
-                    setActiveIndex((index) =>
-                      Math.min(OFFER_CARDS.length - 1, index + 1)
-                    )
-                  }
+
+                {/* =========================
+                    FEATURES
+                ========================== */}
+                <ul className="issue-offer-list">
+                  {card.points.map((point) => (
+                    <li key={point}>
+                      <Check className="size-4 shrink-0" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* =========================
+                    CTA
+                ========================== */}
+                <AddToCartButton
+                  article={card.magazine}
+                  stopPropagation={false}
+                  className="
+                    final-button
+                    issue-offer-button
+                    mt-auto
+                    h-12
+                    w-full
+                    rounded-none
+                    font-rajdhani
+                    text-base
+                    font-bold
+                  "
                 >
-                  <ChevronRight className="size-5" />
-                </button>
-              </div>
-            ) : null}
+                  Own {card.label} {"·"} {card.magazine.priceLabel}
+                </AddToCartButton>
+
+                {/* =========================
+                    FOOTNOTE
+                ========================== */}
+                <p className="issue-offer-footnote">
+                  Secure checkout {"·"} Instant access
+                </p>
+              </article>
+            ))}
           </div>
         </SectionReveal>
       </div>

@@ -29,42 +29,18 @@ function loopPage(page, pageCount) {
 }
 
 function MobileMagazineViewer({ currentPage, direction }) {
-  const totalPages = PAGEFLIP_PAGES.length + 2;
+  const totalPages = PAGEFLIP_PAGES.length + 1;
 
   let image = BOOK_COVER;
   let alt = "ADITI Issue II cover";
 
-  if (currentPage > 0 && currentPage <= PAGEFLIP_PAGES.length) {
+  if (currentPage > 0 && currentPage < totalPages) {
     const page = PAGEFLIP_PAGES[currentPage - 1];
 
     if (page) {
       image = page.image;
       alt = page.alt;
     }
-  }
-
-  if (currentPage === totalPages - 1) {
-    return (
-      <div className="mobile-magazine-viewer">
-        <div className="mobile-magazine-viewer__frame">
-          <article
-            key={currentPage}
-            className="mobile-magazine-page"
-            data-direction={direction}
-          >
-            <div className="mobile-magazine-page__inner flex h-full flex-col items-center justify-center bg-[#0b0e09]">
-              <div className="font-rajdhani text-4xl font-bold tracking-[0.2em] text-ember">
-                ADITI
-              </div>
-
-              <p className="mt-3 font-plex text-xs uppercase tracking-[0.18em] text-fog">
-                Strategy. Defence. Statecraft.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    );
   }
 
   return (
@@ -102,7 +78,9 @@ function ReactPageFlipShowcase() {
   const [dismissedEndCta, setDismissedEndCta] = useState(false);
   const [isBookOpen, setIsBookOpen] = useState(false);
 
-  const pageCount = PAGEFLIP_PAGES.length + 2;
+  // Front cover + actual magazine pages.
+  // Back cover is intentionally NOT included.
+  const pageCount = PAGEFLIP_PAGES.length + 1;
 
   const premiumMagazine = DISPATCHES.find(
     (item) => item.type === "premium",
@@ -110,7 +88,7 @@ function ReactPageFlipShowcase() {
 
   /* =========================================================
      MEASURE AVAILABLE WIDTH
-     ========================================================= */
+  ========================================================= */
   useEffect(() => {
     const stage = stageRef.current;
 
@@ -140,7 +118,7 @@ function ReactPageFlipShowcase() {
 
   /* =========================================================
      BOOK SIZE
-     ========================================================= */
+  ========================================================= */
   const bookWidth =
     stageWidth < 768
       ? Math.min(Math.max((stageWidth - 28) * 0.6, 190), 240)
@@ -152,7 +130,7 @@ function ReactPageFlipShowcase() {
 
   /* =========================================================
      SYNC REACT STATE WITH REACT-PAGEFLIP
-     ========================================================= */
+  ========================================================= */
   useEffect(() => {
     if (!isBookOpen || isMobile) {
       return undefined;
@@ -212,9 +190,7 @@ function ReactPageFlipShowcase() {
 
   /* =========================================================
      OPEN MAGAZINE
-     IMPORTANT:
-     DO NOT LOCK BODY SCROLL
-     ========================================================= */
+  ========================================================= */
   const openMagazine = () => {
     setDismissedEndCta(false);
     setIsBookOpen(true);
@@ -222,14 +198,14 @@ function ReactPageFlipShowcase() {
 
   /* =========================================================
      CLOSE MAGAZINE
-     ========================================================= */
+  ========================================================= */
   const closeMagazine = () => {
     setIsBookOpen(false);
   };
 
   /* =========================================================
      KEYBOARD SUPPORT
-     ========================================================= */
+  ========================================================= */
   useEffect(() => {
     if (!isBookOpen) {
       return undefined;
@@ -280,7 +256,7 @@ function ReactPageFlipShowcase() {
 
   /* =========================================================
      PREVIOUS
-     ========================================================= */
+  ========================================================= */
   const goPrev = () => {
     setDirection("prev");
 
@@ -291,7 +267,7 @@ function ReactPageFlipShowcase() {
 
   /* =========================================================
      NEXT
-     ========================================================= */
+  ========================================================= */
   const goNext = () => {
     setDirection("next");
 
@@ -302,7 +278,7 @@ function ReactPageFlipShowcase() {
 
   /* =========================================================
      FLIP EVENT
-     ========================================================= */
+  ========================================================= */
   const handleFlip = (event) => {
     const nextPage = event.data;
 
@@ -318,9 +294,7 @@ function ReactPageFlipShowcase() {
   const displayLabel =
     currentPage === 0
       ? "Cover"
-      : currentPage === pageCount - 1
-        ? "Back Cover"
-        : `Page ${currentPage}`;
+      : `Page ${currentPage}`;
 
   const canGoPrev = currentPage > 0;
 
@@ -479,12 +453,6 @@ function ReactPageFlipShowcase() {
               role="dialog"
               aria-modal="true"
               aria-label="ADITI interactive magazine"
-
-              /*
-               * IMPORTANT:
-               * No overflow lock.
-               * Background page remains scrollable.
-               */
               onMouseDown={(event) => {
                 if (
                   event.target === event.currentTarget
@@ -507,11 +475,6 @@ function ReactPageFlipShowcase() {
 
               <div
                 className="relative flex max-h-[96vh] w-full max-w-[1200px] flex-col items-center overflow-hidden rounded-2xl border border-white/10 bg-[#090c08]/95 p-3 shadow-[0_40px_120px_rgba(0,0,0,.75)] md:p-6"
-
-                /*
-                 * Wheel events can bubble through this container
-                 * to the document, allowing page scrolling.
-                 */
                 onWheel={(event) => {
                   event.stopPropagation();
                 }}
@@ -641,7 +604,7 @@ function ReactPageFlipShowcase() {
                             </div>
                           </div>
 
-                          {/* INSIDE PAGES */}
+                          {/* ACTUAL MAGAZINE PAGES */}
 
                           {PAGEFLIP_PAGES.map(
                             (page, index) => (
@@ -665,22 +628,6 @@ function ReactPageFlipShowcase() {
                               </div>
                             ),
                           )}
-
-                          {/* BACK COVER */}
-
-                          <div className="pageflip-page pageflip-back-cover">
-                            <div className="pageflip-page-inner pageflip-back-cover__inner">
-
-                              <div className="pageflip-back-cover__logo">
-                                ADITI
-                              </div>
-
-                              <p className="pageflip-back-cover__copy">
-                                Strategy. Defence. Statecraft.
-                              </p>
-
-                            </div>
-                          </div>
 
                         </HTMLFlipBook>
                       )}
