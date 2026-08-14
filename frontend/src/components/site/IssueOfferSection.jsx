@@ -198,7 +198,7 @@ export default function IssueOfferSection() {
                     FOOTNOTE
                 ========================== */}
                 <p className="issue-offer-footnote">
-                  Secure checkout {"·"} Instant access
+                  Secure checkout {"·"} Instant accessa
                 </p>
               </article>
             ))}
