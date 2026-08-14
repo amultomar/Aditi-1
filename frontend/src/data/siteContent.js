@@ -4,6 +4,7 @@ import frameworkBg from "../../media/Terrain-w-scaled.webp";
 import logoMark from "../../media/logo.png";
 import navbarLogo from "../../media/navbar-logo.webp";
 import contributorPlaceholder from "../../media/contributor-placeholder.svg";
+
 import readerAkash from "../../media/testimonials/akash.webp";
 import readerAmita from "../../media/testimonials/amita.webp";
 import readerAnkit from "../../media/testimonials/ankit.webp";
@@ -118,55 +119,64 @@ export const MISSION_PILLARS = [
   },
 ];
 
+/* ============================================================
+   ISSUE I CONTRIBUTORS
+   Designations / professional status aligned with client document.
+   ============================================================ */
+// ============================================================
+// AUTHORS — ISSUE I
+// ============================================================
+
 export const AUTHORS = [
   {
     name: "Prof. (Dr.) Srikanth Kondapalli",
-    rank: "Dean, School of International Studies, JNU",
-    specialty:
-      "Chinese politics, East Asian strategy, and cognitive warfare.",
+    rank:
+      "Professor; Dean, School of International Studies & Chairman, Centre for East Asian Studies, Jawaharlal Nehru University",
+    specialty: "Chinese politics, East Asian strategy, and cognitive warfare.",
     summary:
       "Chairman of the Centre for East Asian Studies at JNU, he examines China's cognitive warfare approach and its impact on India.",
     image: contributorImage("srikanth"),
   },
   {
-    name: "Lt. Gen. Dharam Vir Kalra",
-    rank: "PVSM, AVSM (Retd.)",
-    specialty:
-      "Defence logistics, supply chains, and operational planning.",
+    name: "Lt. Gen. Dharam Vir Kalra | PVSM, AVSM (Retd.)",
+    rank:
+      "Former Director General of Ordnance Services; Indian Army Veteran",
+    specialty: "Defence logistics, supply chains, and operational planning.",
     summary:
       "Former Director General of Ordnance Services, he brings a civilisational and logistics lens to questions of strategy.",
     image: contributorImage("dv kalra"),
   },
   {
-    name: "A.M. (Dr.) Diptendu Choudhury",
-    rank: "PVSM, AVSM, VM, VSM (Retd.)",
-    specialty:
-      "Air power, strategic policy, and regional defence dynamics.",
+    name: "Air Marshal (Dr.) Diptendu Choudhury | PVSM, AVSM, VM, VSM (Retd.)",
+    rank:
+      "Former Commandant, National Defence College; Indian Air Force Veteran",
+    specialty: "Air power, strategic policy, and regional defence dynamics.",
     summary:
       "A former Commandant of the National Defence College and fighter pilot, he analyses Control of Air and future regional dynamics.",
     image: contributorImage("diptendu"),
   },
   {
-    name: "Maj. Gen. (Dr.) Rajan Kochhar",
-    rank: "VSM (Retd.)",
-    specialty:
-      "Army logistics, defence analysis, and higher defence management.",
+    name: "Maj. Gen. (Dr.) Rajan Kochhar | VSM (Retd.)",
+    rank:
+      "Former Major General, Army Ordnance Corps, Central Command; Indian Army Veteran",
+    specialty: "Army logistics, defence analysis, and higher defence management.",
     summary:
       "A former Army Ordnance Corps officer and defence writer, he assesses future-ready logistics for the Indian Army.",
     image: contributorImage("rajan kochhar"),
   },
   {
-    name: "Maj. Gen. (Dr.) Mandip Singh",
-    rank: "SM, VSM (Retd.)",
-    specialty:
-      "Operations, strategic planning, and perception management.",
+    name: "Maj. Gen. (Dr.) Mandip Singh | SM, VSM (Retd.)",
+    rank:
+      "Former Senior Officer, Indian Army; Indian Army Veteran",
+    specialty: "Operations, strategic planning, and perception management.",
     summary:
       "A senior Army veteran with deep operational and headquarters experience, he examines the revolution in drone affairs.",
     image: contributorImage("mandip"),
   },
   {
-    name: "Maj. Gen. Neeraj Bali",
-    rank: "SM (Retd.)",
+    name: "Maj. Gen. Neeraj Bali | SM (Retd.)",
+    rank:
+      "Indian Army Veteran; Former Rashtriya Rifles Battalion Commander & Security Adviser to the Government of Lesotho",
     specialty:
       "China strategy, counter-terror operations, and professional military education.",
     summary:
@@ -174,8 +184,9 @@ export const AUTHORS = [
     image: contributorImage("neeraj bali"),
   },
   {
-    name: "Cmde. Anil Jai Singh",
-    rank: "Commodore (Retd.)",
+    name: "Cmde. Anil Jai Singh (Retd.)",
+    rank:
+      "Senior Vice President, Thyssenkrupp Marine Systems India; Former Indian Navy Officer",
     specialty:
       "Submarine warfare, maritime strategy, procurement, and indigenisation.",
     summary:
@@ -183,17 +194,18 @@ export const AUTHORS = [
     image: contributorImage("anil jai singh"),
   },
   {
-    name: "Brig. Anshuman Narang",
-    rank: "Brigadier (Retd.)",
-    specialty:
-      "OSINT, space security, UAS, and counter-UAS warfare.",
+    name: "Brig. Anshuman Narang (Retd.)",
+    rank:
+      "Founder & Director, Atma Nirbhar Soch Foundation; Former Indian Army Officer",
+    specialty: "OSINT, space security, UAS, and counter-UAS warfare.",
     summary:
       "Founder of the Atma Nirbhar Soch Foundation, he writes on re-energising India's space ecosystem.",
     image: contributorImage("anshuman narang"),
   },
   {
-    name: "Brig. Brijesh Dhiman",
-    rank: "Brigadier (Retd.)",
+    name: "Brig. Brijesh Dhiman (Retd.)",
+    rank:
+      "Former Indian Army Infantry Officer, Assam Regiment",
     specialty:
       "Counterinsurgency, internal security, and Northeast operations.",
     summary:
@@ -201,8 +213,9 @@ export const AUTHORS = [
     image: contributorImage("brijesh dhiman"),
   },
   {
-    name: "Gp. Cpt. (Dr.) Rajiv Kumar Narang",
-    rank: "VM (Retd.)",
+    name: "Gp. Cpt. (Dr.) Rajiv Kumar Narang | VM (Retd.)",
+    rank:
+      "Senior Fellow, Manohar Parrikar Institute for Defence Studies and Analyses; Former Indian Air Force Officer",
     specialty:
       "Aviation safety, unmanned systems, drones, and defence indigenisation.",
     summary:
@@ -211,7 +224,8 @@ export const AUTHORS = [
   },
   {
     name: "Mr. Pawan Kakkar",
-    rank: "Chief Executive Officer, Jugapro India",
+    rank:
+      "Chief Executive Officer, Jugapro India Pvt. Ltd.; Director, Quick Silver Freight Systems Pvt. Ltd.",
     specialty:
       "Emerging defence technologies, UAVs, and counter-unmanned systems.",
     summary:
@@ -220,7 +234,8 @@ export const AUTHORS = [
   },
   {
     name: "Dr. Indranil Roy",
-    rank: "Co-founder and SVP, Natural Intelligence Systems",
+    rank:
+      "Co-Founder & Senior Vice President, Research & Development, Natural Intelligence Systems (NIS), Inc.",
     specialty:
       "Neuromorphic computing, defence research, and manufacturing.",
     summary:
@@ -235,40 +250,38 @@ export const AUTHORS = [
     summary:
       "A military affairs analyst and ORBAT author, he studies China's Western Theatre Command and the PLA's evolving posture.",
     image: contributorImage("jaidev"),
-  }
-  // {
-  //   name: "Mr. Adithya Kothandhapani",
-  //   rank: "Aerospace Engineer",
-  //   specialty:
-  //     "LEO, cis-lunar missions, satellite tracking, and OSINT validation.",
-  //   summary:
-  //     "He combines space engineering with policy analysis to examine the cost of chasing China in space.",
-  //   image: contributorImage("adithya kothandhapani"),
-  // },
-  // {
-  //   name: "Mr. Sameep Agarwal",
-  //   rank: "Cybersecurity Expert",
-  //   specialty:
-  //     "Cyber intelligence, digital forensics, homeland security, and threat intelligence.",
-  //   summary:
-  //     "A cybersecurity practitioner associated with national security work, he analyses India's challenges in cyber warfare capability.",
-  //   image: contributorImage("sameep"),
-  // },
-  // {
-  //   name: "Captain Sarabjeet Singh Parmar",
-  //   rank: "Former Navy helicopter pilot",
-  //   specialty:
-  //     "Maritime strategy, Indian Ocean security, and naval transformation.",
-  //   summary:
-  //     "Captain Sarabjeet Singh Parmar is a former Navy helicopter pilot and has commanded Indian Navy Ships and an Indian Naval Air Squadron.",
-  //   image: contributorImage("sarabjeet singh parmar"),
-  // },
+  },
+  {
+    name: "Mr. Adithya Kothandhapani",
+    rank: "Aerospace Engineer",
+    specialty:
+      "LEO, cis-lunar missions, satellite tracking, and OSINT validation.",
+    summary:
+      "He combines space engineering with policy analysis to examine the cost of chasing China in space.",
+    image: contributorImage("adithya kothandhapani"),
+  },
+  {
+    name: "Mr. Sameep Agarwal",
+    rank: "Cybersecurity Expert",
+    specialty:
+      "Cyber intelligence, digital forensics, homeland security, and threat intelligence.",
+    summary:
+      "A cybersecurity practitioner associated with national security work, he analyses India's challenges in cyber warfare capability.",
+    image: contributorImage("sameep"),
+  },
 ];
+
+
+/* ============================================================
+   ISSUE II CONTRIBUTORS
+   Designations / professional status aligned with client document.
+   ============================================================ */
 
 export const AUTHORS_ISSUE_2 = [
   {
-    name: "Prof. (Dr.) Sukhwant S. Bindra",
-    rank: "Director (Research), Amity Institute of International Studies",
+    name: "Professor (Dr) Sukhwant S. Bindraaa",
+    rank:
+      "Director (Research), Amity Institute of International Studies & Amity Institute of Public Policy, Amity University Noida",
     specialty:
       "International relations, foreign policy analysis, and political theory.",
     summary:
@@ -276,8 +289,8 @@ export const AUTHORS_ISSUE_2 = [
     image: contributorImageIssueTwo("sukhwant singh bindra"),
   },
   {
-    name: "Prof. (Dr.) Cdr. Bhushan Dewan",
-    rank: "Commander (Retd.)",
+    name: "Professor (Dr.) Commander Bhushan Dewan Retd",
+    rank: "Indian Navy Veteran; Academic & Industry Leader",
     specialty:
       "Entrepreneurship, innovation, technology, and educational leadership.",
     summary:
@@ -285,8 +298,9 @@ export const AUTHORS_ISSUE_2 = [
     image: contributorImageIssueTwo("bhushan dewan"),
   },
   {
-    name: "Prof. (Dr.) Y. Nithiyanandam",
-    rank: "Head, Geospatial Research Programme, Takshashila Institution",
+    name: "Professor (Dr.) Y. Nithiyanandam",
+    rank:
+      "Professor & Head, Geospatial Research Program, Takshashila Institution",
     specialty:
       "Geospatial intelligence, remote sensing, GIS analytics, and geospatial policy.",
     summary:
@@ -294,8 +308,9 @@ export const AUTHORS_ISSUE_2 = [
     image: contributorImageIssueTwo("nithiyanandam"),
   },
   {
-    name: "Air Mshl. Anil Khosla",
-    rank: "PVSM, AVSM, VM, ADC (Retd.)",
+    name: "Air Marshal Anil Khosla | PVSM, AVSM, VM, ADC Retd",
+    rank:
+      "Former Vice Chief of the Air Staff; Former AOC-in-C, Eastern Air Command",
     specialty:
       "Ground attack, air defence, and maritime air operations.",
     summary:
@@ -303,8 +318,9 @@ export const AUTHORS_ISSUE_2 = [
     image: contributorImageIssueTwo("anil khosla"),
   },
   {
-    name: "Air Mshl. Anil Chopra",
-    rank: "PVSM, AVSM, VM, VSM (Retd.)",
+    name: "Air Marshal Anil Chopra | PVSM, AVSM, VM, VSM (Retd)",
+    rank:
+      "Indian Air Force Veteran; Former Air Officer-in-Charge Personnel",
     specialty:
       "Air power, flight testing, and aerospace capability.",
     summary:
@@ -312,8 +328,9 @@ export const AUTHORS_ISSUE_2 = [
     image: contributorImageIssueTwo("anil chopra"),
   },
   {
-    name: "Lt. Gen. (Dr.) Sunil Kumar Gadeock",
-    rank: "AVSM (Retd.)",
+    name: "Lieutenant General (Dr) Sunil Kumar Gadeock | AVSM (Retd)",
+    rank:
+      "Indian Army Veteran, Indian Army Veteran / Defence & Strategic Studies Professional",
     specialty:
       "Defence logistics, military training, and defence education.",
     summary:
@@ -321,8 +338,8 @@ export const AUTHORS_ISSUE_2 = [
     image: contributorImageIssueTwo("sunil kumar gadeock"),
   },
   {
-    name: "Lt. Gen. Vijay Singh",
-    rank: "Lieutenant General (Retd.)",
+    name: "Lieutenant General Vijay Singh (Retd)",
+    rank: "Indian Army Veteran",
     specialty:
       "Counter-insurgency, border management, and UN peacekeeping.",
     summary:
@@ -330,8 +347,8 @@ export const AUTHORS_ISSUE_2 = [
     image: contributorImageIssueTwo("vijay singh"),
   },
   {
-    name: "Maj. Gen. Brajesh Kumar",
-    rank: "AVSM, VSM (Retd.)",
+    name: "Major General Brajesh Kumar | AVSM, VSM (Retd)",
+    rank: "Indian Army Veteran; Infrastructure Consultant",
     specialty:
       "Defence infrastructure, project execution, and military engineering.",
     summary:
@@ -339,8 +356,9 @@ export const AUTHORS_ISSUE_2 = [
     image: contributorImageIssueTwo("brajesh kumar"),
   },
   {
-    name: "Col. (Dr.) Amitabh Hoskote",
-    rank: "Colonel (Retd.)",
+    name: "Colonel (Dr) Amitabh Hoskote (Retd)",
+    rank:
+      "Indian Army Veteran; Senior Fellow & Faculty, CLAWS–MAHE",
     specialty:
       "Military doctrine, conflict and security, and post-conflict transition.",
     summary:
@@ -348,8 +366,9 @@ export const AUTHORS_ISSUE_2 = [
     image: contributorImageIssueTwo("amitabh hoskote"),
   },
   {
-    name: "Col. Amitabh Bhagat",
-    rank: "Colonel (Retd.)",
+    name: "Colonel Amitabh Bhagat (Retd)",
+    rank:
+      "Indian Army Veteran; Former Senior Business Leader, Aerospace & Defence Sector",
     specialty:
       "Defence policy, procurement, and international security.",
     summary:
@@ -357,8 +376,9 @@ export const AUTHORS_ISSUE_2 = [
     image: contributorImageIssueTwo("amitabh bhagat"),
   },
   {
-    name: "Col. Shailender Arya",
-    rank: "Colonel (Retd.)",
+    name: "Colonel Shailender Arya (Retd)",
+    rank:
+      "Indian Army Veteran; Senior Advisor, The Asia Group",
     specialty:
       "Geopolitics, defence and aerospace policy, and risk advisory.",
     summary:
@@ -376,7 +396,8 @@ export const AUTHORS_ISSUE_2 = [
   },
   {
     name: "Mr. Kartikeya Gupt",
-    rank: "Co-founder, C SCAN",
+    rank:
+      "Co-Founder, C SCAN; Doctoral Scholar, Amity Institute of Defence and Strategic Studies",
     specialty:
       "Strategy and air power theory.",
     summary:
@@ -384,8 +405,9 @@ export const AUTHORS_ISSUE_2 = [
     image: contributorImageIssueTwo("kartikeya gupta"),
   },
   {
-    name: "Mr. Pranav K. Paranjape",
-    rank: "Amity Institute of Defence and Strategic Studies",
+    name: "Mr. Pranav Kedar Paranjape",
+    rank:
+      "Student, Amity Institute of Defence and Strategic Studies",
     specialty:
       "Military history, land warfare, and the Af-Pak region.",
     summary:
@@ -653,8 +675,10 @@ export const DISPATCHES = [
   },
 ];
 
-// Every purchasable issue, newest first.
-// `slug` must match the `magazines.slug` column in the backend catalogue.
+/* ============================================================
+   MAGAZINE ISSUES
+   ============================================================ */
+
 export const MAGAZINE_ISSUES = [
   {
     ordinal: "II",
@@ -691,6 +715,10 @@ export function magazineForIssue(ordinal) {
     ) ?? null
   );
 }
+
+/* ============================================================
+   FEEDBACK
+   ============================================================ */
 
 export const FEEDBACKS = [
   {
@@ -802,6 +830,10 @@ export const READER_FEEDBACKS = [
   },
 ];
 
+/* ============================================================
+   EDITION STATS
+   ============================================================ */
+
 export const EDITION_STATS = [
   {
     value: "4",
@@ -827,6 +859,10 @@ export const EDITION_STATS = [
   },
 ];
 
+/* ============================================================
+   OJAS
+   ============================================================ */
+
 export const OJAS_PANELS = [
   {
     id: "forum",
@@ -849,6 +885,10 @@ export const OJAS_PANELS = [
     accent: true,
   },
 ];
+
+/* ============================================================
+   FAQ
+   ============================================================ */
 
 export const FAQ_ITEMS = [
   {
